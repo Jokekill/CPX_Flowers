@@ -1,0 +1,199 @@
+html, body {
+    height: 100%; /* Ensure both html and body take up full height */
+    margin: 0;    /* Remove default margin to prevent scrolling issues */
+    overflow: hidden; /* Prevent overflow and any scrollbars */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #2b2b2b;
+    color: #f0f0f0;
+    background-image: url('Grid.png'); /* Only Grid image is used in the background */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keeps the background fixed in place */
+    position: relative;
+}
+
+#network-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 800px; /* Set a fixed width to ensure the image stays centered */
+    height: 800px; /* Set a fixed height to maintain aspect ratio */
+    transform: translate(-50%, -50%) scale(0.8); /* Adjust transform to properly center */
+    background-image: url('Network.png');
+    background-repeat: no-repeat;
+    background-size: contain; /* Ensures the image stays within the given dimensions */
+    pointer-events: none; /* Ensures that the Network image doesn't block interactions */
+    z-index: 1; /* Puts the Network image above the background but behind the content */
+}
+
+#blob1, #blob2 {
+    position: fixed;
+    border-radius: 50%; /* Makes them blob-like */
+    pointer-events: none; /* Prevents them from blocking any interactions */
+    z-index: 0; /* Place it below all other content */
+    opacity: 0.7; /* Adds a translucent effect */
+    filter: blur(100px); /* Softens the edges to create a blob effect */
+}
+
+/* Specific styles for blob1 */
+#blob1 {
+    width: 500px;
+    height: 500px;
+    top: 15%;
+    left: 10%;
+    background: radial-gradient(circle at 30% 30%, rgba(237, 71, 35, 0.8), rgba(237, 71, 35, 0.1));
+}
+
+/* Specific styles for blob2 */
+#blob2 {
+    width: 600px;
+    height: 600px;
+    bottom: 10%;
+    right: 15%;
+    background: radial-gradient(circle at 70% 70%, rgba(237, 71, 35, 0.8), rgba(237, 71, 35, 0.1));
+}
+
+#background-logo {
+    position: fixed;
+    top: 20px; /* Adjusts how far from the top the logo appears */
+    left: 20px; /* Adjusts how far from the left the logo appears */
+    width: 120px; /* Set a suitable width for the logo */
+    height: auto; /* Maintain aspect ratio */
+    background-image: url('logo2.png'); /* Replace with the actual file name of your logo */
+    background-repeat: no-repeat;
+    background-size: contain;
+    pointer-events: none; /* Prevents it from blocking any user interactions */
+    z-index: 2; /* Ensures it stays above the background elements */
+}
+
+.controls {
+    margin-bottom: 20px;
+    margin-top: 50px; /* Keeps content towards the top */
+    position: relative;
+    z-index: 3; /* Puts the content above the network overlay */
+}
+
+#flower-container {
+    position: relative;
+    width: 874px;
+    height: 874px;
+    background-color: transparent;
+    border: 5px solid rgb(237, 71, 35);
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out;
+    z-index: 3; /* Ensures content stays above network overlay */
+}
+
+#flower-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+#flower-image.fade-out,
+#flower-container.fade-out,
+#number-overlay.fade-out,
+#logo-overlay.fade-out {
+    animation: fade-out 0.8s ease-in-out forwards;
+}
+
+#flower-image.shuffle-and-fade-in,
+#flower-container.shuffle-and-fade-in,
+#number-overlay.shuffle-and-fade-in,
+#logo-overlay.shuffle-and-fade-in {
+    animation: shuffle-and-fade-in 0.8s ease-in-out forwards;
+}
+
+#number-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(237, 71, 35);
+    background-color: #000;
+    border: 2px solid rgb(237, 71, 35);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease-in-out;
+    z-index: 4; /* Ensures overlay is above the main flower image */
+}
+
+#logo-overlay {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 100px;
+    height: auto;
+    transition: opacity 0.8s ease-in-out;
+    z-index: 4; /* Keeps the existing logo above other elements */
+}
+
+@keyframes shuffle-and-fade-in {
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    75% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    75% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+button#generate-button {
+    background-color: rgb(237, 71, 35);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 4; /* Ensure button stays above network overlay */
+}
+
+button#generate-button:hover {
+    background-color: #e63f21;
+}
