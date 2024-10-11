@@ -80,8 +80,8 @@ body {
 
 #flower-container {
     position: relative;
-    width: 874px;
-    height: 874px;
+    width: min(874px, 80vw); 
+    height: min(874px, 80vh);
     background-color: transparent;
     border: 5px solid rgb(237, 71, 35);
     border-radius: 10px;
@@ -196,4 +196,45 @@ button#generate-button {
 
 button#generate-button:hover {
     background-color: #e63f21;
+}
+
+
+/* Hamburger menu icon */
+.menu-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 5;
+    color: #fff;
+}
+
+/* Hamburger menu */
+.menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: #2b2b2b;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    z-index: 5;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #2b2b2b;
+}
+
+.menu ul li:hover {
+    background-color: #444;
 }

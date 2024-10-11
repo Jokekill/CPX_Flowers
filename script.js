@@ -5,6 +5,51 @@ document.addEventListener('DOMContentLoaded', function() {
     const logoOverlay = document.getElementById('logo-overlay');
     const controlsContainer = document.getElementById('controls-container');
     const flowerContainer = document.getElementById('flower-container');
+    const menuIcon = document.getElementById('menu-icon');
+    const menu = document.getElementById('menu');
+    const fullscreenMenu = document.getElementById('fullscreen-menu');
+    
+    var elem = document.documentElement; // The whole webpage
+
+    // Fullscreen function (toggles fullscreen)
+    function toggleFullscreen() {
+        if (!document.fullscreenElement) { // Enter fullscreen
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { // Firefox
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { // Chrome, Safari, Opera
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { // IE/Edge
+                elem.msRequestFullscreen();
+            }
+        } else { // Exit fullscreen
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.mozCancelFullScreen) { // Firefox
+                document.mozCancelFullScreen();
+            } else if (document.webkitExitFullscreen) { // Chrome, Safari, Opera
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { // IE/Edge
+                document.msExitFullscreen();
+            }
+        }
+    }
+
+    // Toggle menu visibility
+    menuIcon.addEventListener('click', function() {
+        if (menu.style.display === 'block') {
+            menu.style.display = 'none';
+        } else {
+            menu.style.display = 'block';
+        }
+    });
+
+    // Handle fullscreen action from the menu
+    fullscreenMenu.addEventListener('click', function() {
+        toggleFullscreen(); // Call the toggleFullscreen function
+        menu.style.display = 'none'; // Hide menu after selection
+    });
 
     // Check if all elements are found
     if (!generateButton || !flowerImage || !numberOverlay || !logoOverlay || !controlsContainer || !flowerContainer) {
@@ -21,6 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Generate button click handler
     generateButton.addEventListener('click', function() {
+        
+
         const randomFlowerIndex = Math.floor(Math.random() * 10) + 1; // Assuming we have 10 different flower images
 
         // Update the flower image and number overlay with animation
@@ -80,4 +127,5 @@ document.addEventListener('DOMContentLoaded', function() {
             logoOverlay.classList.remove('fade-out');
         }, 800); // Matches the CSS transition duration
     });
+
 });
