@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuIcon = document.getElementById('menu-icon');
     const menu = document.getElementById('menu');
     const fullscreenMenu = document.getElementById('fullscreen-menu');
+    const title = document.getElementById('page-title');
     
     var elem = document.documentElement; // The whole webpage
 
@@ -68,10 +69,11 @@ document.addEventListener('DOMContentLoaded', function() {
     generateButton.addEventListener('click', function() {
         
 
-        const randomFlowerIndex = Math.floor(Math.random() * 10) + 1; // Assuming we have 10 different flower images
+        const randomFlowerIndex = generateCount % 55 + 1; // Generate a random number between 1 and 55
+        const formattedIndex = randomFlowerIndex.toString().padStart(2, '0');
 
         // Update the flower image and number overlay with animation
-        flowerImage.src = `flowers/flower${randomFlowerIndex}.webp`;
+        flowerImage.src = `flowers/flower${formattedIndex}.webp`;
         flowerImage.style.display = 'block';
         flowerContainer.style.display = 'block';
 
@@ -91,6 +93,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Hide controls
         controlsContainer.style.display = 'none';
+        title.style.display = 'none';
+
+            // Hide sliders
+        document.querySelectorAll('.slidecontainer').forEach(slidecontainer => {
+            slidecontainer.style.display = 'none';
+        });
+
 
         // Increment the generate count
         generateCount++;
@@ -119,6 +128,17 @@ document.addEventListener('DOMContentLoaded', function() {
             flowerContainer.style.display = 'none';
             flowerImage.src = ''; // Clear the image source to avoid showing an empty image
             controlsContainer.style.display = 'block';
+            title.style.display = 'block';
+            
+            // Show sliders
+            document.querySelectorAll('.slidecontainer').forEach(slidecontainer => {
+                slidecontainer.style.display = 'block';
+            });
+
+            // Reset sliders to the middle position
+            document.querySelectorAll('.slider').forEach(slider => {
+                slider.value = (parseInt(slider.min) + parseInt(slider.max)) / 2;
+            });
 
             // Remove fade-out classes
             flowerImage.classList.remove('fade-out');

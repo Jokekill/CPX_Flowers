@@ -18,18 +18,33 @@
         </ul>
     </div>
     
-
     <div id="blob1"></div>
     <div id="blob2"></div>
-    <h1>Flower Picture Generator</h1>
-    <div class="slidecontainer">
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-      </div>
-      <div class="slidecontainer">
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
-      </div>
-    <div id="controls-container" class="controls">
-        <button id="generate-button">Generate</button>
+    <div id="page-title" class="page-title">
+        <h1>Kytka na míru: Co uvázat pro Vaše Milé</h1>
+    </div>    
+    <div id="controls-wrapper">
+        <div id="slider-wrapper" class="slider-wrapper">    
+            <div class="slidecontainer">
+                <label for="myRange1">Od ‚vše je OK‘ po ‚tady je účet za květinářství‘: Jak moc potřebujete zapůsobit?</label>
+                <input type="range" min="1" max="100" value="50" class="slider" id="myRange1">
+            </div>
+            <div class="slidecontainer">
+                <label for="myRange2">Od maličkosti po ‚měl bych přidat básničku?‘: Jak romantický chcete být?</label>
+                <input type="range" min="1" max="100" value="50" class="slider" id="myRange2">
+            </div>
+            <div class="slidecontainer">
+                <label for="myRange1">Od menší kytky po ‚koupil jsem i čokoládu‘: Kolik úsilí bude potřeba?</label>
+                <input type="range" min="1" max="100" value="50" class="slider" id="myRange1">
+            </div>
+            <div class="slidecontainer">
+                <label for="myRange2">Od běžného přešlapu k průšvihu století: Jak velkou omluvu má tahle kytka zvládnout?</label>
+                <input type="range" min="1" max="100" value="50" class="slider" id="myRange2">
+            </div>
+        </div>
+        <div id="controls-container" class="controls">
+            <button id="generate-button">Vyber kytku!</button>
+        </div>
     </div>
     <div id="flower-container" style="display: none;">
         <img id="flower-image" src="" alt="Flower">
