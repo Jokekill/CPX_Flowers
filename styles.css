@@ -248,15 +248,22 @@ button#generate-button:hover {
 }
 
 .slidecontainer {
-    width: 80%;
+    width: 85%;
     margin: 20px auto;
     margin-top: 70px;
+}
+
+.justslidecontainer {
+    display: flex;
+    align-items: center; /* Srovná slidery vertikálně (pokud je to potřeba) */
+    justify-content: center; 
 }
 
 .slider {
     -webkit-appearance: none; /* Override default CSS styles */
     appearance: none;
     width: 100%;
+    max-width: 500px;
     height: 25px; /* Make the slider bigger */
     background: rgb(237, 71, 35); /* Orange color */
     border: 1px solid black; /* 1px black border */
@@ -304,4 +311,7 @@ label {
 .slider-wrapper{
     margin-top: 45vh;
     margin-bottom: 10vh;
+}
+.span {
+    max-width: 60px;
 }
