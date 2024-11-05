@@ -1,7 +1,7 @@
 html, body {
-    height: 100%; /* Ensure both html and body take up full height */
-    margin: 0;    /* Remove default margin to prevent scrolling issues */
-    overflow: hidden; /* Prevent overflow and any scrollbars */
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
 }
 
 body {
@@ -9,11 +9,11 @@ body {
     text-align: center;
     background-color: #2b2b2b;
     color: #f0f0f0;
-    background-image: url('Grid.png'); /* Only Grid image is used in the background */
+    background-image: url('Grid.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Keeps the background fixed in place */
+    background-attachment: fixed;
     position: relative;
 }
 
@@ -21,26 +21,25 @@ body {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 800px; /* Set a fixed width to ensure the image stays centered */
-    height: 800px; /* Set a fixed height to maintain aspect ratio */
-    transform: translate(-50%, -50%) scale(0.8); /* Adjust transform to properly center */
+    width: 800px;
+    height: 800px;
+    transform: translate(-50%, -50%) scale(0.8);
     background-image: url('Network.png');
     background-repeat: no-repeat;
-    background-size: contain; /* Ensures the image stays within the given dimensions */
-    pointer-events: none; /* Ensures that the Network image doesn't block interactions */
-    z-index: 1; /* Puts the Network image above the background but behind the content */
+    background-size: contain;
+    pointer-events: none;
+    z-index: 1;
 }
 
 #blob1, #blob2 {
     position: fixed;
-    border-radius: 50%; /* Makes them blob-like */
-    pointer-events: none; /* Prevents them from blocking any interactions */
-    z-index: 0; /* Place it below all other content */
-    opacity: 0.7; /* Adds a translucent effect */
-    filter: blur(100px); /* Softens the edges to create a blob effect */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.7;
+    filter: blur(100px);
 }
 
-/* Specific styles for blob1 */
 #blob1 {
     width: 500px;
     height: 500px;
@@ -49,7 +48,6 @@ body {
     background: radial-gradient(circle at 30% 30%, rgba(237, 71, 35, 0.8), rgba(237, 71, 35, 0.1));
 }
 
-/* Specific styles for blob2 */
 #blob2 {
     width: 600px;
     height: 600px;
@@ -60,27 +58,27 @@ body {
 
 #background-logo {
     position: fixed;
-    top: 20px; /* Adjusts how far from the top the logo appears */
-    left: 20px; /* Adjusts how far from the left the logo appears */
-    width: 120px; /* Set a suitable width for the logo */
-    height: auto; /* Maintain aspect ratio */
-    background-image: url('logo2.png'); /* Replace with the actual file name of your logo */
+    top: 20px;
+    left: 20px;
+    width: 120px;
+    height: auto;
+    background-image: url('logo2.png');
     background-repeat: no-repeat;
     background-size: contain;
-    pointer-events: none; /* Prevents it from blocking any user interactions */
-    z-index: 2; /* Ensures it stays above the background elements */
+    pointer-events: none;
+    z-index: 2;
 }
 
 .controls {
     margin-bottom: 20px;
-    margin-top: 50px; /* Keeps content towards the top */
+    margin-top: 50px;
     position: relative;
-    z-index: 3; /* Puts the content above the network overlay */
+    z-index: 3;
 }
 
 #flower-container {
     position: relative;
-    width: min(874px, 80vw); 
+    width: min(874px, 80vw);
     height: min(874px, 80vh);
     background-color: transparent;
     border: 5px solid rgb(237, 71, 35);
@@ -89,8 +87,8 @@ body {
     margin-right: auto;
     margin-top: 50px;
     opacity: 1;
-    transition: opacity 0.8s ease-in-out;
-    z-index: 3; /* Ensures content stays above network overlay */
+    transition: opacity 1.2s cubic-bezier(0.42, 0, 0.58, 1), transform 1.2s cubic-bezier(0.42, 0, 0.58, 1);
+    z-index: 3;
 }
 
 #flower-image {
@@ -101,21 +99,21 @@ body {
     top: 0;
     left: 0;
     opacity: 0;
-    transition: opacity 0.8s ease-in-out;
+    transition: opacity 1.2s cubic-bezier(0.42, 0, 0.58, 1), transform 1.2s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 #flower-image.fade-out,
 #flower-container.fade-out,
 #number-overlay.fade-out,
 #logo-overlay.fade-out {
-    animation: fade-out 0.8s ease-in-out forwards;
+    animation: fade-out 1.2s cubic-bezier(0.42, 0, 0.58, 1) forwards;
 }
 
 #flower-image.shuffle-and-fade-in,
 #flower-container.shuffle-and-fade-in,
 #number-overlay.shuffle-and-fade-in,
 #logo-overlay.shuffle-and-fade-in {
-    animation: shuffle-and-fade-in 0.8s ease-in-out forwards;
+    animation: shuffle-and-fade-in 1.2s cubic-bezier(0.42, 0, 0.58, 1) forwards;
 }
 
 #number-overlay {
@@ -133,8 +131,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.8s ease-in-out;
-    z-index: 4; /* Ensures overlay is above the main flower image */
+    transition: opacity 1.2s cubic-bezier(0.42, 0, 0.58, 1);
+    z-index: 4;
 }
 
 #logo-overlay {
@@ -143,43 +141,46 @@ body {
     right: 10px;
     width: 100px;
     height: auto;
-    transition: opacity 0.8s ease-in-out;
-    z-index: 4; /* Keeps the existing logo above other elements */
+    transition: opacity 1.2s cubic-bezier(0.42, 0, 0.58, 1);
+    z-index: 4;
 }
 
+/* Keyframe animation for smooth fading and scaling */
 @keyframes shuffle-and-fade-in {
     0% {
         opacity: 0;
+        transform: scale(0.9); /* Start smaller */
     }
-    25% {
-        opacity: 0.3;
+    30% {
+        opacity: 0.5;
+        transform: scale(1.05); /* Slight overshoot */
     }
-    50% {
-        opacity: 0.6;
-    }
-    75% {
-        opacity: 0.8;
+    60% {
+        opacity: 0.75;
+        transform: scale(0.98); /* Slight fallback */
     }
     100% {
         opacity: 1;
+        transform: scale(1); /* Final state */
     }
 }
 
 @keyframes fade-out {
     0% {
         opacity: 1;
+        transform: scale(1); /* Initial size */
     }
-    25% {
-        opacity: 0.8;
+    30% {
+        opacity: 0.75;
+        transform: scale(1.05); /* Slight overshoot */
     }
-    50% {
-        opacity: 0.6;
-    }
-    75% {
-        opacity: 0.3;
+    60% {
+        opacity: 0.5;
+        transform: scale(0.95); /* Shrink */
     }
     100% {
         opacity: 0;
+        transform: scale(0.9); /* Final shrink */
     }
 }
 
@@ -191,7 +192,7 @@ button#generate-button {
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-    z-index: 4; /* Ensure button stays above network overlay */
+    z-index: 4;
 }
 
 button#generate-button:hover {
