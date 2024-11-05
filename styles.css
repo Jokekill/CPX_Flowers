@@ -79,9 +79,9 @@ body {
 #flower-container {
     position: fixed; /* Ensure it stays fixed and full-screen */
     top: 10%;
-    left: 10%;
+    left: 3%;
     transform: translate(-50%, -50%);
-    width: min(874px, 80vw);
+    width: min(874px, 94vw);
     height: min(874px, 80vh);
     background-color: transparent;
     border: 5px solid rgb(237, 71, 35);
