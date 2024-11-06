@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
     generateButton.addEventListener('click', function() {
         
 
-        const randomFlowerIndex = generateCount % 55 + 1; // Generate a random number between 1 and 55
+        const randomFlowerIndex = Math.floor(Math.random() * 55) + 1; // Generate a random number between 1 and 55
         const formattedIndex = randomFlowerIndex.toString().padStart(2, '0');
 
         // Update the flower image and number overlay with animation
